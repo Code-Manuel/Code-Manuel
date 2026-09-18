@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 210" width="700" height="210" role="img" aria-label="Code Manuel - Senior Developer">
+  <defs>
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#ffffff" opacity="0.035"/>
+    </pattern>
+    <clipPath id="typeClip">
+      <rect x="40" y="30" height="30" width="0">
+        <animate attributeName="width" from="0" to="300" dur="1.4s" begin="0.2s" fill="freeze"/>
+      </rect>
+    </clipPath>
+    <clipPath id="frame">
+      <rect x="0" y="0" width="700" height="210" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .mono { font-family: "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace; }
+
+    .name       { font-size: 62px; font-weight: 700; letter-spacing: 2px; }
+    .name-out   { fill: none; stroke: #e6edf3; stroke-width: 1.2;
+                  stroke-dasharray: 360; stroke-dashoffset: 360;
+                  animation: draw 1.6s ease-out 1.2s forwards; }
+    .name-fill  { fill: #e6edf3; opacity: 0; animation: snap 0.1s steps(1) 2.6s forwards; }
+
+    .g          { font-size: 62px; font-weight: 700; letter-spacing: 2px; opacity: 0; }
+    .g-r        { fill: #ff2d55; animation: glitchR 7s infinite 3s; }
+    .g-c        { fill: #00e0d0; animation: glitchC 7s infinite 3s; }
+
+    .prompt     { font-size: 17px; fill: #7d8590; }
+    .cmd        { font-size: 17px; fill: #3fb950; }
+    .role       { font-size: 20px; fill: #3fb950; letter-spacing: 1px;
+                  opacity: 0; animation: snap 0.1s steps(1) 2.9s forwards; }
+    .caret      { fill: #3fb950; opacity: 0; animation: blink 1s steps(1) 3s infinite; }
+
+    .bit        { font-size: 13px; fill: #3fb950; opacity: 0.16;
+                  animation: fall linear infinite; }
+
+    @keyframes draw  { to { stroke-dashoffset: 0; } }
+    @keyframes snap  { to { opacity: 1; } }
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    @keyframes fall  { from { transform: translateY(-60px); } to { transform: translateY(270px); } }
+
+    @keyframes glitchR {
+      0%, 88%, 100% { transform: translate(0,0);    opacity: 0; }
+      89%           { transform: translate(-4px,2px); opacity: 0.85; }
+      92%           { transform: translate(3px,-3px); opacity: 0.6; }
+      95%           { transform: translate(-2px,1px); opacity: 0.8; }
+      97%           { transform: translate(0,0);      opacity: 0; }
+    }
+    @keyframes glitchC {
+      0%, 88%, 100% { transform: translate(0,0);     opacity: 0; }
+      89%           { transform: translate(4px,-2px); opacity: 0.8; }
+      92%           { transform: translate(-3px,3px); opacity: 0.55; }
+      95%           { transform: translate(2px,-1px); opacity: 0.75; }
+      97%           { transform: translate(0,0);      opacity: 0; }
+    }
+  </style>
+
+  <g clip-path="url(#frame)">
+    <rect x="0" y="0" width="700" height="210" rx="10" fill="#080a0d"/>
+
+    <!-- pioggia di bit sullo sfondo -->
+    <g class="mono">
+      <text class="bit" x="30"  y="0" style="animation-duration: 9s;  animation-delay: -2s;">01001101</text>
+      <text class="bit" x="125" y="0" style="animation-duration: 13s; animation-delay: -7s;">11010</text>
+      <text class="bit" x="210" y="0" style="animation-duration: 11s; animation-delay: -4s;">0110</text>
+      <text class="bit" x="305" y="0" style="animation-duration: 15s; animation-delay: -9s;">10011010</text>
+      <text class="bit" x="400" y="0" style="animation-duration: 10s; animation-delay: -1s;">0101</text>
+      <text class="bit" x="480" y="0" style="animation-duration: 14s; animation-delay: -6s;">110100</text>
+      <text class="bit" x="565" y="0" style="animation-duration: 12s; animation-delay: -11s;">01110</text>
+      <text class="bit" x="645" y="0" style="animation-duration: 8s;  animation-delay: -3s;">1001</text>
+    </g>
+
+    <!-- riga di prompt, digitata -->
+    <g clip-path="url(#typeClip)" class="mono">
+      <text x="40" y="52" class="prompt">manuel@dev:~$ <tspan class="cmd">whoami</tspan></text>
+    </g>
+
+    <!-- nome: contorno disegnato, poi riempimento secco -->
+    <text x="40" y="130" class="mono g g-c">Code Manuel</text>
+    <text x="40" y="130" class="mono g g-r">Code Manuel</text>
+    <text x="40" y="130" class="mono name name-out">Code Manuel</text>
+    <text x="40" y="130" class="mono name name-fill">Code Manuel</text>
+
+    <!-- ruolo + cursore -->
+    <text x="40" y="170" class="mono role">&gt; Developer</text>
+    <rect x="270" y="154" width="11" height="20" class="caret"/>
+
+    <rect x="0" y="0" width="700" height="210" fill="url(#scan)"/>
+    <rect x="0.5" y="0.5" width="699" height="209" rx="10" fill="none" stroke="#1f2630" stroke-width="1"/>
+  </g>
+</svg>
