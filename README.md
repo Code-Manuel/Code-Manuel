@@ -5,9 +5,3 @@
 ## Developer
 
 Ciao, sono Manuel.
-
-```js
-const manuel = {
-  code: ["Python", "SQL", "Java", "JavaScript", "Bash"]
-};
-```
